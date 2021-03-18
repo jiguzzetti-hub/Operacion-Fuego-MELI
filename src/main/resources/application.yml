@@ -1,0 +1,11 @@
+server:
+    port: ${APP_PORT}
+fireOperation:
+spring:
+    main:
+        allow-bean-definition-overriding: true
+    application:
+        name: fireOperation
+    devtools:
+        restart:
+            enabled: true
