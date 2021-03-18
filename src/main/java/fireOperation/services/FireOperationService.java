@@ -16,17 +16,17 @@ public class FireOperationService {
 		FireOperationResponse response = new FireOperationResponse();
 		if ((!ValidationService.validateMessages(request.getSatellites())
 				|| (!ValidationService.validateDistances(request.getSatellites())))) {
-			return ResponseEntity.status(404).build();
+			return ResponseEntity.status(403).build();
 		}
 		response.setMessage(getMessage(request.getSatellites().get(0).getMessage(),
 				request.getSatellites().get(1).getMessage(), request.getSatellites().get(2).getMessage()));
 		if (response.getMessage() == null) {
-			return ResponseEntity.status(404).build();
+			return ResponseEntity.status(405).build();
 		}
 		response.setPosition(getLocation(request.getSatellites().get(0).getDistance(),
 				request.getSatellites().get(1).getDistance(), request.getSatellites().get(2).getDistance()));
 		if (response.getPosition() == null) {
-			return ResponseEntity.status(404).build();
+			return ResponseEntity.status(406).build();
 		}
 
 		return ResponseEntity.ok(response);

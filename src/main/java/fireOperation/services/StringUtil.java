@@ -6,13 +6,14 @@ import java.util.regex.Pattern;
 public class StringUtil {
 	// Valido que cada palabra del mensaje sea String, considero letras y números
 	// solamente porque no aclara ningún caracter especial a considerar
-	private static final String GENDER_REGEX = "[a-zA-Z0-9]";
+	private static final String GENDER_REGEX = "^[a-zA-Z]*$";
 
 	public static boolean validateString(ArrayList<String> messageList) {
 		for (String word : messageList) {
 			if (!containsOnlyStrings(word)) {
 				return false;
 			}
+			
 
 		}
 		return true;
