@@ -6,7 +6,7 @@ public class Satellite {
 
 	private String name;
 	private float distance;
-	private ArrayList<MessageWords> message;
+	private ArrayList<String> message;
 
 	public String getName() {
 		return name;
@@ -24,15 +24,15 @@ public class Satellite {
 		this.distance = distance;
 	}
 
-	public ArrayList<MessageWords> getMessage() {
+	public ArrayList<String> getMessage() {
 		return message;
 	}
 
-	public void setMessage(ArrayList<MessageWords> message) {
+	public void setMessage(ArrayList<String> message) {
 		this.message = message;
 	}
 
-	public Satellite(String name, float distance, ArrayList<MessageWords> message) {
+	public Satellite(String name, float distance, ArrayList<String> message) {
 		super();
 		this.name = name;
 		this.distance = distance;
