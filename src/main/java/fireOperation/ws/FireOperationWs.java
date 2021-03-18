@@ -28,7 +28,7 @@ public class FireOperationWs {
 			@ApiResponse(code = 500, message = "Internal Server Error"),
 			@ApiResponse(code = 400, message = "Error en petición") })
 	
-	public ResponseEntity<?> registerNewCardUser(@RequestBody final FireOperationRequest request) throws NumberFormatException, Exception {
+	public ResponseEntity<?> topSecret(@RequestBody final FireOperationRequest request) throws NumberFormatException, Exception {
 		
 		return fireOperationService.getMessageAndLocation(request);
 	}
