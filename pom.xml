@@ -49,6 +49,10 @@
 			<optional>true</optional>
 		</dependency>
 		<dependency>
+			<groupId>org.liquibase</groupId>
+			<artifactId>liquibase-core</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
@@ -59,6 +63,11 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.postgresql</groupId> -->
+<!-- 			<artifactId>postgresql</artifactId> -->
+<!-- 			<scope>runtime</scope> -->
+<!-- 		</dependency> -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web-services</artifactId>
@@ -68,6 +77,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework.boot</groupId> -->
+<!-- 			<artifactId>spring-boot-starter-data-jpa</artifactId> -->
+<!-- 		</dependency> -->
 		<dependency>
 			<groupId>org.springframework.integration</groupId>
 			<artifactId>spring-integration-core</artifactId>
@@ -92,6 +105,32 @@
 					<projectId>GCLOUD_CONFIG</projectId>
 				</configuration>
 			</plugin>
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.liquibase</groupId> -->
+<!-- 				<artifactId>liquibase-maven-plugin</artifactId> -->
+<!-- 				<version>4.0.0</version> -->
+<!-- 				<configuration> -->
+<!-- 					<propertyFile>src/main/resources/db/liquibase.properties -->
+<!-- 					</propertyFile> -->
+<!-- 				</configuration> -->
+<!-- 				<dependencies> -->
+<!-- 					<dependency> -->
+<!-- 						<groupId>org.liquibase.ext</groupId> -->
+<!-- 						<artifactId>liquibase-hibernate5</artifactId> -->
+<!-- 						<version>4.0.0</version> -->
+<!-- 					</dependency> -->
+<!-- 					<dependency> -->
+<!-- 						<groupId>org.springframework.boot</groupId> -->
+<!-- 						<artifactId>spring-boot-starter-web</artifactId> -->
+<!-- 						<version>2.2.6.RELEASE</version> -->
+<!-- 					</dependency> -->
+<!-- 					<dependency> -->
+<!-- 						<groupId>org.springframework.boot</groupId> -->
+<!-- 						<artifactId>spring-boot-starter-data-jpa</artifactId> -->
+<!-- 						<version>2.2.6.RELEASE</version> -->
+<!-- 					</dependency> -->
+<!-- 				</dependencies> -->
+<!-- 			</plugin> -->
 		</plugins>
 	</build>
 </project>
