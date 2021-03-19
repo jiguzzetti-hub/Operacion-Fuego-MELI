@@ -22,6 +22,7 @@ public class ValidationService {
 	public static boolean validateDistances (ArrayList<Satellite> satellites) {
 		for (Satellite satellite : satellites) {
 			if (!Float.isFinite(satellite.getDistance())) {
+				System.out.println(satellite.getDistance());
 				return false;
 			}
 		}
