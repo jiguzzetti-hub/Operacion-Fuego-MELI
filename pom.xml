@@ -28,22 +28,25 @@
 			<artifactId>logback-access-spring-boot-starter</artifactId>
 			<version>2.7.1</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-gcp-starter</artifactId>
+			<version>1.1.1.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-gcp-starter-sql-postgresql</artifactId>
+			<version>1.0.0.RELEASE</version>
+		</dependency>
 <!-- 		<dependency> -->
-<!-- 			<groupId>org.springframework.cloud</groupId> -->
-<!-- 			<artifactId>spring-cloud-gcp-starter</artifactId> -->
-<!-- 			<version>1.1.1.RELEASE</version> -->
+<!-- 		<groupId>org.springframework.cloud</groupId> -->
+<!-- 		<artifactId>spring-cloud-gcp-autoconfigure</artifactId> -->
+<!-- 		<version>1.2.7.RELEASE</version> -->
 <!-- 		</dependency> -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.springframework.cloud</groupId> -->
-<!-- 			<artifactId>spring-cloud-gcp-starter-sql-postgresql</artifactId> -->
-<!-- 			<version>1.0.0.RELEASE</version> -->
-<!-- 		</dependency> -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.springframework.cloud</groupId> -->
-<!-- 			<artifactId>spring-cloud-gcp-autoconfigure</artifactId> -->
-<!-- 			<version>1.2.7.RELEASE</version> -->
-<!-- 		</dependency> -->
-
+		<dependency>
+			<groupId>com.google.appengine</groupId>
+			<artifactId>appengine-api-1.0-sdk</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-access</artifactId>
@@ -104,12 +107,12 @@
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
-<!-- 			<dependency> -->
-<!-- 				<groupId>org.springframework.cloud</groupId> -->
-<!-- 				<artifactId>spring-cloud-gcp-dependencies</artifactId> -->
-<!-- 				<version>${spring-cloud-gcp.version}</version> -->
-<!-- 				<type>pom</type> -->
-<!-- 			</dependency> -->
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-gcp-dependencies</artifactId>
+				<version>${spring-cloud-gcp.version}</version>
+				<type>pom</type>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 	<build>
@@ -118,15 +121,15 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-<!-- 			<plugin> -->
-<!-- 				<groupId>com.google.cloud.tools</groupId> -->
-<!-- 				<artifactId>appengine-maven-plugin</artifactId> -->
-<!-- 				<version>2.2.0</version> -->
-<!-- 				<configuration> -->
-<!-- 					<version>1</version> -->
-<!-- 					<projectId>GCLOUD_CONFIG</projectId> -->
-<!-- 				</configuration> -->
-<!-- 			</plugin> -->
+			<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>appengine-maven-plugin</artifactId>
+				<version>2.2.0</version>
+				<configuration>
+					<version>1</version>
+					<projectId>GCLOUD_CONFIG</projectId>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.liquibase</groupId>
 				<artifactId>liquibase-maven-plugin</artifactId>
