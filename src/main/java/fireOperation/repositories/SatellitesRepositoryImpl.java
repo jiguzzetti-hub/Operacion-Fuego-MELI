@@ -13,7 +13,7 @@ public class SatellitesRepositoryImpl {
     private EntityManager entityManager;
 
     public List<Satellite> findOrderedByInsertionDateLimitedTo(int limit) {
-        return entityManager.createQuery("SELECT s FROM Satellite s ORDER BY s.insertionDate",
+        return entityManager.createQuery("SELECT s FROM Satellite s ORDER BY s.insertionDate DESC",
         		Satellite.class).setMaxResults(limit).getResultList();
     }
 

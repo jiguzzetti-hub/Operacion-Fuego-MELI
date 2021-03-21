@@ -3,7 +3,6 @@ package fireOperation.services;
 import java.util.ArrayList;
 import java.util.List;
 
-import fireOperation.context.SatelliteNames;
 import fireOperation.dtos.Satellite;
 
 public class ValidationService {
@@ -39,22 +38,12 @@ public class ValidationService {
 		return checkSatellitesAreNotTheSame(satellites);
 	}
 
-	private static boolean checkSatellitesAreNotTheSame (List<fireOperation.entities.Satellite> satellites) {
-		if((satellites.get(0).getName().equals(satellites.get(1).getName())) || 
-				(satellites.get(1).getName().equals(satellites.get(2).getName()))){
+	private static boolean checkSatellitesAreNotTheSame(List<fireOperation.entities.Satellite> satellites) {
+		if ((satellites.get(0).getName().equals(satellites.get(1).getName()))
+				|| (satellites.get(1).getName().equals(satellites.get(2).getName()))) {
 			return false;
 		}
-		return validateSatellitesNames(satellites);
-	}
-	
-	private static boolean validateSatellitesNames (List<fireOperation.entities.Satellite> satellites) {
-		for (fireOperation.entities.Satellite satellite : satellites) {
-			if (!satellites.contains(SatelliteNames.values())) {
-				return false;
-			}
-		}
 		return true;
-		
 	}
 
 }
