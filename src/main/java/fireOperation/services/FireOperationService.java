@@ -220,6 +220,10 @@ public class FireOperationService {
 		response.setPosition(getLocation(getDistancesOrdered(satellites)));
 		response.setMessage(getMessage(satellites.get(0).getMessage(), satellites.get(1).getMessage(),
 				satellites.get(2).getMessage()));
+		if (response.getMessage() == null) {
+			return ResponseEntity.status(404).build();
+		}
+		satellitesRepository.deleteAll();
 		return ResponseEntity.ok(response);
 	}
 
