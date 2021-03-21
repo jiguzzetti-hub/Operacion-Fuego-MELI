@@ -28,6 +28,22 @@
 			<artifactId>logback-access-spring-boot-starter</artifactId>
 			<version>2.7.1</version>
 		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework.cloud</groupId> -->
+<!-- 			<artifactId>spring-cloud-gcp-starter</artifactId> -->
+<!-- 			<version>1.1.1.RELEASE</version> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework.cloud</groupId> -->
+<!-- 			<artifactId>spring-cloud-gcp-starter-sql-postgresql</artifactId> -->
+<!-- 			<version>1.0.0.RELEASE</version> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework.cloud</groupId> -->
+<!-- 			<artifactId>spring-cloud-gcp-autoconfigure</artifactId> -->
+<!-- 			<version>1.2.7.RELEASE</version> -->
+<!-- 		</dependency> -->
+
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-access</artifactId>
@@ -63,11 +79,6 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.postgresql</groupId> -->
-<!-- 			<artifactId>postgresql</artifactId> -->
-<!-- 			<scope>runtime</scope> -->
-<!-- 		</dependency> -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web-services</artifactId>
@@ -77,10 +88,15 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.springframework.boot</groupId> -->
-<!-- 			<artifactId>spring-boot-starter-data-jpa</artifactId> -->
-<!-- 		</dependency> -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.integration</groupId>
 			<artifactId>spring-integration-core</artifactId>
@@ -88,6 +104,12 @@
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
+<!-- 			<dependency> -->
+<!-- 				<groupId>org.springframework.cloud</groupId> -->
+<!-- 				<artifactId>spring-cloud-gcp-dependencies</artifactId> -->
+<!-- 				<version>${spring-cloud-gcp.version}</version> -->
+<!-- 				<type>pom</type> -->
+<!-- 			</dependency> -->
 		</dependencies>
 	</dependencyManagement>
 	<build>
@@ -96,41 +118,42 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			<plugin>
-				<groupId>com.google.cloud.tools</groupId>
-				<artifactId>appengine-maven-plugin</artifactId>
-				<version>2.2.0</version>
-				<configuration>
-					<version>1</version>
-					<projectId>GCLOUD_CONFIG</projectId>
-				</configuration>
-			</plugin>
 <!-- 			<plugin> -->
-<!-- 				<groupId>org.liquibase</groupId> -->
-<!-- 				<artifactId>liquibase-maven-plugin</artifactId> -->
-<!-- 				<version>4.0.0</version> -->
+<!-- 				<groupId>com.google.cloud.tools</groupId> -->
+<!-- 				<artifactId>appengine-maven-plugin</artifactId> -->
+<!-- 				<version>2.2.0</version> -->
 <!-- 				<configuration> -->
-<!-- 					<propertyFile>src/main/resources/db/liquibase.properties -->
-<!-- 					</propertyFile> -->
+<!-- 					<version>1</version> -->
+<!-- 					<projectId>GCLOUD_CONFIG</projectId> -->
 <!-- 				</configuration> -->
-<!-- 				<dependencies> -->
-<!-- 					<dependency> -->
-<!-- 						<groupId>org.liquibase.ext</groupId> -->
-<!-- 						<artifactId>liquibase-hibernate5</artifactId> -->
-<!-- 						<version>4.0.0</version> -->
-<!-- 					</dependency> -->
-<!-- 					<dependency> -->
-<!-- 						<groupId>org.springframework.boot</groupId> -->
-<!-- 						<artifactId>spring-boot-starter-web</artifactId> -->
-<!-- 						<version>2.2.6.RELEASE</version> -->
-<!-- 					</dependency> -->
-<!-- 					<dependency> -->
-<!-- 						<groupId>org.springframework.boot</groupId> -->
-<!-- 						<artifactId>spring-boot-starter-data-jpa</artifactId> -->
-<!-- 						<version>2.2.6.RELEASE</version> -->
-<!-- 					</dependency> -->
-<!-- 				</dependencies> -->
 <!-- 			</plugin> -->
+			<plugin>
+				<groupId>org.liquibase</groupId>
+				<artifactId>liquibase-maven-plugin</artifactId>
+				<version>4.0.0</version>
+				<configuration>
+					<propertyFile>src/main/resources/db/liquibase.properties
+					</propertyFile>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.liquibase.ext</groupId>
+						<artifactId>liquibase-hibernate5</artifactId>
+						<version>4.0.0</version>
+					</dependency>
+					<dependency>
+						<groupId>org.springframework.boot</groupId>
+						<artifactId>spring-boot-starter-web</artifactId>
+						<version>2.2.6.RELEASE</version>
+					</dependency>
+					<dependency>
+						<groupId>org.springframework.boot</groupId>
+						<artifactId>spring-boot-starter-data-jpa</artifactId>
+						<version>2.2.6.RELEASE</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+
 		</plugins>
 	</build>
 </project>
