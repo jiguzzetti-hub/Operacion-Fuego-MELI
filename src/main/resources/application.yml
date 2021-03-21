@@ -13,7 +13,7 @@ spring:
         password: toor
         testWhileIdle: true
         url: jdbc:postgresql://35.237.255.153:5432/fire_operation_db
-        username: postgres
+        username: fire-operation
         validationQuery: SELECT 1
     jpa:
         database-platform: org.hibernate.dialect.PostgreSQLDialect
