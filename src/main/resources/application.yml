@@ -9,3 +9,20 @@ spring:
     devtools:
         restart:
             enabled: true
+    datasource:
+        password: toor
+        testWhileIdle: true
+        url: ${DS_URL}
+        username: postgres
+        validationQuery: SELECT 1
+    jpa:
+        database-platform: org.hibernate.dialect.PostgreSQLDialect
+        hibernate:
+            ddl-auto: ${DB_DDL_AUTO}
+            naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+            use-new-id-generator-mappings: true
+        properties:
+            hibernate:
+                show_sql: false
+    liquibase:
+        change-log: ${LIQUIBASE_CHANGELOG_PATH}

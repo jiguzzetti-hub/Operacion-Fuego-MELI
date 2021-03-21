@@ -21,10 +21,10 @@ public class Position {
 		this.y = y;
 	}
 
-	public Position(float x, float y) {
+	public Position(double triptx, double tripty) {
 		super();
-		this.x = x;
-		this.y = y;
+		this.x = (float) triptx;
+		this.y = (float) tripty;
 	}
 
 	public Position() {
