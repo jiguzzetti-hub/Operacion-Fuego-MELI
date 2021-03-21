@@ -8,4 +8,5 @@
 
 	<include file="001-initial.xml" relativeToChangelogFile="true" />
 	<include file="002-dropUkSatelliteName.xml" relativeToChangelogFile="true" />
+	<include file="003-changeColumnSatelliteNameByName.xml" relativeToChangelogFile="true" />
 </databaseChangeLog>
