@@ -9,7 +9,7 @@
 		<relativePath />
 	</parent>
 	<groupId>meli.apps.backend</groupId>
-	<artifactId>fireOperation</artifactId>
+	<artifactId>fire-operation</artifactId>
 	<version>0.0.1</version>
 	<name>fire-operation</name>
 	<description>Api de Operacion Fuego</description>
