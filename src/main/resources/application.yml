@@ -1,18 +1,18 @@
 server:
     port: 8082
-fireOperation:
+fire-operation-meli:
 spring:
     main:
         allow-bean-definition-overriding: true
     application:
-        name: fireOperation
+        name: fire-operation-meli
     devtools:
         restart:
             enabled: true
     datasource:
         password: toor
         testWhileIdle: true
-        url: jdbc:postgresql://35.237.255.153:5432/fire_operation_db
+#        url: jdbc:postgresql://35.237.255.153:5432/fire_operation_db
         username: postgres
         validationQuery: SELECT 1
     jpa:

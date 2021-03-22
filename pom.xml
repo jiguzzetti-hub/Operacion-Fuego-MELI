@@ -9,9 +9,9 @@
 		<relativePath />
 	</parent>
 	<groupId>meli.apps.backend</groupId>
-	<artifactId>fire-operation</artifactId>
+	<artifactId>fire-operation-meli</artifactId>
 	<version>0.0.1</version>
-	<name>fire-operation</name>
+	<name>fire-operation-meli</name>
 	<description>Api de Operacion Fuegos de Quasar</description>
 	<properties>
 		<java.version>11</java.version>
