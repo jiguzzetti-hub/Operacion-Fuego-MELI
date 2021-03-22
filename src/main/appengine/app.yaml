@@ -1,6 +1,2 @@
 runtime: java11
 instance_class: F2
-env_variables:
-        LIQUIBASE_CHANGELOG_PATH: "classpath:db/changelog/master.xml"
-        DS_URL: "jdbc:postgresql://35.237.255.153:5432/fire_operation_db"
-
