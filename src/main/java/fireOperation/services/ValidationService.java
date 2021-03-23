@@ -3,9 +3,14 @@ package fireOperation.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
+
 import fireOperation.dtos.Satellite;
 
 public class ValidationService {
+	
+	private static final String ACCESS_KEY = "fireOperationAccessKey";
 
 	// Recorro satélites y paso lista de palabras en cada mensaje a validar si son
 	// String
@@ -26,6 +31,16 @@ public class ValidationService {
 			if (!Float.isFinite(satellite.getDistance())) {
 				return false;
 			}
+		}
+		return true;
+	}
+	
+	public static boolean validateHeaderApiKey(HttpHeaders header) {
+		String reqAccessKey = header.get("x-apiKey").toString();
+		if(!reqAccessKey.equals("["+ACCESS_KEY.toString()+"]")) {
+
+		
+		return false;
 		}
 		return true;
 	}
