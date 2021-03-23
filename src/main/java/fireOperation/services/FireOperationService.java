@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -24,9 +25,12 @@ public class FireOperationService {
 	private SatellitesRepository satellitesRepository;
 	@Autowired
 	private SatellitesRepositoryImpl satellitesRepositoryImpl;
-
-	public ResponseEntity<?> getMessageAndLocation(FireOperationRequest request) {
+	
+	public ResponseEntity<?> getMessageAndLocation(FireOperationRequest request, HttpHeaders header) {
 		FireOperationResponse response = new FireOperationResponse();
+		if (!ValidationService.validateHeaderApiKey(header)) {
+			return ResponseEntity.status(401).build();
+		}
 		if ((!ValidationService.validateMessages(request.getSatellites())
 				|| (!ValidationService.validateDistances(request.getSatellites())))) {
 			return ResponseEntity.status(404).build();
@@ -44,6 +48,7 @@ public class FireOperationService {
 		}
 
 		return ResponseEntity.ok(response);
+		
 	}
 
 	public String getMessage(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c) {
@@ -74,16 +79,7 @@ public class FireOperationService {
 	}
 
 	private int getMaxSizeOfArrays(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c) {
-		int maxSize = a.size();
-		if (maxSize < b.size()) {
-			maxSize = b.size();
-
-		}
-		if (maxSize < c.size()) {
-			maxSize = c.size();
-		}
-
-		return maxSize;
+		return Math.max(a.size(), Math.max(b.size(), c.size()));
 	}
 
 	public Position getLocation(GetLocationRequest request) {
@@ -122,14 +118,6 @@ public class FireOperationService {
 		// POINT 3
 		P3[0] = satelliteC.getX();
 		P3[1] = satelliteC.getY();
-
-		// TRANSFORM THE METERS VALUE FOR THE MAP UNIT
-		// DISTANCE BETWEEN POINT 1 AND MY LOCATION
-		// distanceA = (distanceA / 100000);
-		// DISTANCE BETWEEN POINT 2 AND MY LOCATION
-		// distanceB = (distanceB / 100000);
-		// DISTANCE BETWEEN POINT 3 AND MY LOCATION
-		// distanceC = (distanceC / 100000);
 
 		for (int i = 0; i < P1.length; i++) {
 			t1 = P2[i];
@@ -200,18 +188,21 @@ public class FireOperationService {
 
 	}
 
-	public ResponseEntity<?> setMessageAndLocationOfEachSatellite(TopSecretSplitRequest request, String satelliteName) {
-		// Satellite satellite = new Satellite(satelliteName, request.getDistance(),
-		// request.getMessage());
-
+	public ResponseEntity<?> setMessageAndLocationOfEachSatellite(TopSecretSplitRequest request, String satelliteName, HttpHeaders header) {
+		if (!ValidationService.validateHeaderApiKey(header)) {
+			return ResponseEntity.status(401).build();
+		}
 		satellitesRepository
 				.save(new fireOperation.entities.Satellite(request.getDistance(), request.getMessage(), satelliteName));
 
 		return null;
 	}
 
-	public ResponseEntity<?> getMessageAndLocationSplit() {
+	public ResponseEntity<?> getMessageAndLocationSplit(HttpHeaders header) {
 		FireOperationResponse response = new FireOperationResponse();
+		if (!ValidationService.validateHeaderApiKey(header)) {
+			return ResponseEntity.status(401).build();
+		}
 		List<fireOperation.entities.Satellite> satellites = satellitesRepositoryImpl
 				.findOrderedByInsertionDateLimitedTo(3);
 		if (!ValidationService.checkMinimunOfThreeInsert(satellites)) {

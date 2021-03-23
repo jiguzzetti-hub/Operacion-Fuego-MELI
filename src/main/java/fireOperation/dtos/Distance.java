@@ -1,4 +1,4 @@
-package fireOperation.services;
+package fireOperation.dtos;
 
 public class Distance {
 	

@@ -5,19 +5,28 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.3.1.RELEASE</version>
+		<version>2.3.7.RELEASE</version>
 		<relativePath />
 	</parent>
 	<groupId>meli.apps.backend</groupId>
 	<artifactId>fire-operation-meli</artifactId>
-	<version>0.0.1</version>
+	<version>0.1.3</version>
 	<name>fire-operation-meli</name>
 	<description>Api de Operacion Fuegos de Quasar</description>
 	<properties>
 		<java.version>11</java.version>
-		<springboot.version>2.3.1</springboot.version>
-		<spring-cloud-gcp.version>1.2.5.RELEASE</spring-cloud-gcp.version>
+		<spring-cloud.version>Hoxton.SR4</spring-cloud.version>
+		<keycloak.version>4.6.0.Final</keycloak.version>
+		<bouncycastle.version>1.61</bouncycastle.version>
+		<springfox.version>2.9.2</springfox.version>
+		<auth0.version>3.10.3</auth0.version>
+		<jakarta.version>2.1.0</jakarta.version>
+		<logback-access.version>2.7.1</logback-access.version>
+		<javax.version>7.0</javax.version>
+		<zxing.version>3.3.0</zxing.version>
+		<gson.version>2.8.6</gson.version>
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -29,12 +38,9 @@
 			<version>2.7.1</version>
 		</dependency>
 		<dependency>
-			<groupId>com.google.cloud.sql</groupId>
-			<artifactId>mysql-socket-factory</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-gcp-starter</artifactId>
+			<version>1.2.3.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
@@ -50,10 +56,10 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
-		<!-- <dependency> -->
-		<!-- <groupId>org.springframework.cloud</groupId> -->
-		<!-- <artifactId>spring-cloud-gcp-autoconfigure</artifactId> -->
-		<!-- </dependency> -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-gcp-autoconfigure</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>com.google.appengine</groupId>
 			<artifactId>appengine-api-1.0-sdk</artifactId>
@@ -111,13 +117,38 @@
 			<groupId>org.springframework.integration</groupId>
 			<artifactId>spring-integration-core</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-gcp-starter-secretmanager</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>${javax.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.zxing</groupId>
+			<artifactId>core</artifactId>
+			<version>${zxing.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.zxing</groupId>
+			<artifactId>javase</artifactId>
+			<version>${zxing.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>${gson.version}</version>
+		</dependency>
+		
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-gcp-dependencies</artifactId>
-				<version>1.1.2.RELEASE</version>
+				<version>1.2.3.RELEASE</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -166,4 +197,12 @@
 			</plugin>
 		</plugins>
 	</build>
+	<repositories>
+		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+		</repository>
+	</repositories>
+	
 </project>
