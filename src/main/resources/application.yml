@@ -16,10 +16,9 @@ spring:
         hiraki:
             minimum-idle: 5
             maximum-pool-size: 2
-        password: toor
-        username: postgres
+        password: fire123
+        username: fire_operation_user
         validationQuery: SELECT 1
-        url: jdbc:postgresql://localhost:5432/fire_operation_db
     jpa:
         database-platform: org.hibernate.dialect.PostgreSQLDialect
         hibernate:
