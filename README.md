@@ -1,6 +1,9 @@
 Operación Fuego de Quasar - MELI
+
 Proyecto para challenge de Mercado Libre, se solicita determinar la posición del emisor y el descifrar el mensaje emitido, de ser posible.
+
 Comenzando 🚀
+
 Clona este repositorio:
 Git clone https://github.com/jiguzzetti-hub/Operacion-Fuego-MELI.git
 
@@ -9,14 +12,13 @@ Make run-db
 
 Crea la BD con pgAdmin(https://www.pgadmin.org/download/)
 Debes conectarte a localhots:5432/fire_operation_db desde tu IDE favorito
+
 Pre-requisitos 📋
 Para correr este proyecto necesita:
 curl for Windows
 docker-desktop
 Maven
 jdk11
-
-
 
 Despliegue 📦
 Para buildear la imagen, parado sobre el raíz del proyecto:
