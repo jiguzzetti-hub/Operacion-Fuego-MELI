@@ -36,13 +36,19 @@ public class ValidationService {
 	}
 	
 	public static boolean validateHeaderApiKey(HttpHeaders header) {
-		String reqAccessKey = header.get("x-apiKey").toString();
-		if(!reqAccessKey.equals("["+ACCESS_KEY.toString()+"]")) {
+		if(!header.containsKey("x-apiKey")) {
+			return false;
+		}else {
+			String reqAccessKey = header.get("x-apiKey").toString();
+			if(!reqAccessKey.equals("["+ACCESS_KEY.toString()+"]")) {
 
-		
-		return false;
+			
+			return false;
+			}
+			return true;
 		}
-		return true;
+		
+		
 	}
 
 	public static boolean checkMinimunOfThreeInsert(List<fireOperation.entities.Satellite> satellites) {

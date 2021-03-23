@@ -2,6 +2,7 @@ management:
   health:
     diskspace:
       enabled: false
+fire-operation-meli:
 server:
     port: 8082
 spring:
