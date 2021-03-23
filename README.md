@@ -1,68 +1,48 @@
-Título del Proyecto
-Acá va un párrafo que describa lo que es el proyecto
-
+Operación Fuego de Quasar - MELI
+Proyecto para challenge de Mercado Libre, se solicita determinar la posición del emisor y el descifrar el mensaje emitido, de ser posible.
 Comenzando 🚀
-Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas.
+Clona este repositorio:
+Git clone https://github.com/jiguzzetti-hub/Operacion-Fuego-MELI.git
 
-Mira Deployment para conocer como desplegar el proyecto.
+Levanta la BD con docker-compose:
+Make run-db
 
+Crea la BD con pgAdmin(https://www.pgadmin.org/download/)
+Debes conectarte a localhots:5432/fire_operation_db desde tu IDE favorito
 Pre-requisitos 📋
-Que cosas necesitas para instalar el software y como instalarlas
+Para correr este proyecto necesita:
+curl for Windows
+docker-desktop
+Maven
+jdk11
 
-Da un ejemplo
-Instalación 🔧
-Una serie de ejemplos paso a paso que te dice lo que debes ejecutar para tener un entorno de desarrollo ejecutandose
 
-Dí cómo será ese paso
 
-Da un ejemplo
-Y repite
-
-hasta finalizar
-Finaliza con un ejemplo de cómo obtener datos del sistema o como usarlos para una pequeña demo
-
-Ejecutando las pruebas ⚙️
-Explica como ejecutar las pruebas automatizadas para este sistema
-
-Analice las pruebas end-to-end 🔩
-Explica que verifican estas pruebas y por qué
-
-Da un ejemplo
-Y las pruebas de estilo de codificación ⌨️
-Explica que verifican estas pruebas y por qué
-
-Da un ejemplo
 Despliegue 📦
-Agrega notas adicionales sobre como hacer deploy
+Para buildear la imagen, parado sobre el raíz del proyecto:
+Make build-image
+
+Para pushear la imagen al registry configurado en el Makefile:
+Make push-image
+
+Datos para correr la app 🛠️
+Método /topsecret
+curl --location --request POST 'https://fire-operation-meli-kc7i6mi6tq-ue.a.run.app/fireOperation/topsecret' \ --header 'x-apiKey: fireOperationAccessKey' \ --header 'Content-Type: application/json' \ --data-raw '{     "satellites": [         {             "name": "kenobi",             "distance": 51.876356,             "message": ["1A", "", "3A", "4A", "", "","7A"]         },         {             "name": "skywalker",             "distance": 211.5446346,             "message": [ "", "2B", "3B", "", "5B", ""]         },         {             "name": "sato",             "distance": 1463.74545,             "message": ["1C", "", "", "4C", "", "6C", "", "8C"]         }     ] }'
+
+Método /topsecret_split POST
+curl --location --request POST 'https://fire-operation-meli-kc7i6mi6tq-ue.a.run.app/fireOperation/topsecret_split/sato' \ --header 'x-apiKey: fireOperationAccessKey' \ --header 'Content-Type: application/json' \ --data-raw '{     "distance": 143.7,            "message": ["1A", "2","7A", "4","3"] }'
+
+
+Método /topsecret_split GET
+curl --location --request GET 'https://fire-operation-meli-kc7i6mi6tq-ue.a.run.app/fireOperation/topsecret_split' \ --header 'x-apiKey: fireOperationAccessKey'
 
 Construido con 🛠️
 Menciona las herramientas que utilizaste para crear tu proyecto
-
-Dropwizard - El framework web usado
-Maven - Manejador de dependencias
-ROME - Usado para generar RSS
-Contribuyendo 🖇️
-Por favor lee el CONTRIBUTING.md para detalles de nuestro código de conducta, y el proceso para enviarnos pull requests.
-
-Wiki 📖
-Puedes encontrar mucho más de cómo utilizar este proyecto en nuestra Wiki
-
-Versionado 📌
-Usamos SemVer para el versionado. Para todas las versiones disponibles, mira los tags en este repositorio.
-
-Autores ✒️
-Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios
-
-Andrés Villanueva - Trabajo Inicial - villanuevand
-Fulanito Detal - Documentación - fulanitodetal
-También puedes mirar la lista de todos los contribuyentes quíenes han participado en este proyecto.
-
-Licencia 📄
-Este proyecto está bajo la Licencia (Tu Licencia) - mira el archivo LICENSE.md para detalles
-
-Expresiones de Gratitud 🎁
-Comenta a otros sobre este proyecto 📢
-Invita una cerveza 🍺 o un café ☕ a alguien del equipo.
-Da las gracias públicamente 🤓.
-etc.
-⌨️ con ❤️ por Villanuevand 😊
+•	Spring-boot - Basado en el framework para desarrollar API REST en Java.
+•	Maven - Manejador de dependencias
+•	Postgresql - Usado dar servicio de BD.
+•	Liquibase - Versionador de BD
+Autor ✒️
+•	Juan Guzzetti – Desarrollo general e implementación - jiguzzetti-hub 
+________________________________________
+⌨️ con ❤️ por jiguzzetti-hub 😊
